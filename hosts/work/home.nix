@@ -28,9 +28,9 @@
   };
 
   home = {
-    stateVersion = "22.11";
-    homeDirectory = lib.mkDefault "/home/yurii";
-    username = "yurii";
+    stateVersion = "24.05";
+    homeDirectory = lib.mkDefault "/home/pro";
+    username = "pro";
 
     packages = with pkgs; [
       bottles

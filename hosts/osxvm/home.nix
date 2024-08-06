@@ -13,8 +13,8 @@
   ];
 
   home = {
-    username = "yurii";
-    stateVersion = "22.11";
-    homeDirectory = "/Users/yurii/";
+    username = "pro";
+    stateVersion = "24.05";
+    homeDirectory = "/Users/pro/";
   };
 }

@@ -3,10 +3,10 @@
   # =                           WELCOME!                           = #
   # ================================================================ #
 
-  description = "Yurii's NixOS configuration";
+  description = "Pro's NixOS configuration";
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-24.05";
 
     xremap-flake.url = "github:xremap/nix-flake";
 
@@ -75,7 +75,7 @@
       nixosConfigurations = {
         # ===================== NixOS Configurations ===================== #
 
-        laptop = mkSystem ./hosts/laptop/configuration.nix;
+        "pro" = mkSystem ./hosts/laptop/configuration.nix;
         work = mkSystem ./hosts/work/configuration.nix;
         vps = mkSystem ./hosts/vps/configuration.nix;
         liveiso = mkSystem ./hosts/liveiso/configuration.nix;
@@ -84,13 +84,13 @@
       homeConfigurations = {
         # ================ Maintained home configurations ================ #
 
-        "yurii@laptop" = mkHome "x86_64-linux" ./hosts/laptop/home.nix;
-        "yurii@work" = mkHome "x86_64-linux" ./hosts/work/home.nix;
+        "pro" = mkHome "x86_64-linux" ./hosts/laptop/home.nix;
+        # "yurii@work" = mkHome "x86_64-linux" ./hosts/work/home.nix;
 
         # ========================= Discontinued ========================= #
         # This one doesn't work. Left it in case I ever want to use it again
 
-        "yurii@osxvm" = mkHome "x86_64-darwin" ./hosts/osxvm/home.nix;
+        # "yurii@osxvm" = mkHome "x86_64-darwin" ./hosts/osxvm/home.nix;
       };
 
       homeManagerModules.default = ./homeManagerModules;

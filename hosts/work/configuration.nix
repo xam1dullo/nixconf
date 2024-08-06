@@ -20,7 +20,7 @@
 
     hyprland.enable = true;
     home-users = {
-      "yurii" = {
+      "pro" = {
         userConfig = ./home.nix;
         userSettings = {
           extraGroups = ["docker" "libvirtd" "networkmanager" "wheel" "adbusers"];
@@ -142,5 +142,5 @@
   # =                         DO NOT TOUCH                         = #
   # ================================================================ #
 
-  system.stateVersion = "23.05";
+  system.stateVersion = "24.05";
 }

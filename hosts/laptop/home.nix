@@ -7,8 +7,8 @@
 }: {
   imports = [outputs.homeManagerModules.default];
 
-  programs.git.userName = "yurii";
-  programs.git.userEmail = "yurii@goxore.com";
+  programs.git.userName = "khamidullo";
+  programs.git.userEmail = "khamidullo@gmail.com";
 
   myHomeManager.impermanence.data.directories = [
     "nixconf"
@@ -75,9 +75,9 @@
   };
 
   home = {
-    username = "yurii";
-    homeDirectory = lib.mkDefault "/home/yurii";
-    stateVersion = "22.11";
+    username = "pro";
+    homeDirectory = lib.mkDefault "/home/pro";
+    stateVersion = "24.05";
 
     packages = with pkgs; [
       obs-studio

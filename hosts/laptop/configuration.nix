@@ -33,14 +33,14 @@
     bundles.users.enable = true;
     power-management.enable = true;
     sops.enable = false;
-    autologin.user = "yurii";
+    autologin.user = "pro";
 
     virtualisation.enable = lib.mkDefaut true;
 
     hyprland.enable = true;
 
     home-users = {
-      "yurii" = {
+      "pro" = {
         userConfig = ./home.nix;
         userSettings = {
           extraGroups = ["networkmanager" "wheel" "libvirtd" "docker" "adbusers" "openrazer"];
@@ -51,7 +51,7 @@
     impermanence.enable = true;
     impermanence.nukeRoot.enable = true;
   };
-  users.users.yurii.hashedPasswordFile = "/persist/passwd";
+  users.users.pro.hashedPasswordFile = "/persist/passwd";
 
   # programs.hyprland.package = inputs.hyprland.packages."${pkgs.system}".hyprland;
   security.polkit.enable = true;
@@ -142,7 +142,7 @@
 
   system.activationScripts = {
     myCustomConfigFile = ''
-      cat << EOF > /home/yurii/.config/myconfigfile
+      cat << EOF > /home/pro/.config/myconfigfile
       test = a
       test2 = b
       kek = cheburek
@@ -153,5 +153,5 @@
   xdg.portal.extraPortals = [pkgs.xdg-desktop-portal-gtk];
   xdg.portal.enable = true;
 
-  system.stateVersion = "23.11";
+  system.stateVersion = "24.105";
 }

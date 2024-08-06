@@ -17,17 +17,20 @@
   boot.kernelModules = ["kvm-amd"];
   boot.extraModulePackages = [];
 
-  fileSystems."/" = {
-    device = "/dev/disk/by-uuid/929fa326-0b28-4e91-9b1f-ab78f0972f2d";
-    fsType = "ext4";
-  };
+    fileSystems."/" =
+    { device = "/dev/disk/by-uuid/9cc6e1bd-c302-4c00-bee6-2bd9c610ccf0";
+      fsType = "ext4";
+    };
 
-  fileSystems."/boot" = {
-    device = "/dev/disk/by-uuid/3CA8-28FA";
-    fsType = "vfat";
-  };
+  fileSystems."/boot" =
+    { device = "/dev/disk/by-uuid/0DFC-7FD5";
+      fsType = "vfat";
+      options = [ "fmask=0022" "dmask=0022" ];
+    };
 
-  swapDevices = [{device = "/dev/disk/by-uuid/6c3b54d7-5c02-4d9e-bddb-4d4aad015757";}];
+  swapDevices =
+    [ { device = "/dev/disk/by-uuid/b0bfeeb0-82e2-422b-97ec-f2998f6514b1"; }
+    ];
 
   # Enables DHCP on each ethernet and wireless interface. In case of scripted networking
   # (the default) this is the recommended approach. When using systemd-networkd it's
@@ -36,6 +39,20 @@
   networking.useDHCP = lib.mkDefault true;
   # networking.interfaces.eno1.useDHCP = lib.mkDefault true;
 
+  hardware = {
+    # CPU (Intel)
+    cpu.intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
+
+    # GPU (Nvidia)
+    nvidia = {
+      modesetting.enable = true;
+      powerManagement.enable = false;
+      powerManagement.finegrained = false;
+      open = false;
+      nvidiaSettings = true;
+      package = config.boot.kernelPackages.nvidiaPackages.stable;
+    };
+  };
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
   hardware.cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
 }

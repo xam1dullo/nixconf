@@ -13,7 +13,7 @@
 
   home = {
     username = "main";
-    stateVersion = "22.11";
+    stateVersion = "24.05";
 
     packages = with pkgs; [];
   };
